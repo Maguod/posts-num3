@@ -2,7 +2,7 @@
 
 namespace App\model;
 use Aura\SqlQuery\QueryFactory;
-use \PDO;
+use PDO;
 
 class Database {
   private $pdo;
