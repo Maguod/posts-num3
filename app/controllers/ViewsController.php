@@ -19,10 +19,10 @@ class ViewsController
   public function getTemplate()
   {
     if($this->user->isLoggedIn()) {
-      $template = new Engine('../app/view/user');
+      $template = new Engine('../app/View/user');
       return $template;
     }
-    $template = new Engine('../app/view');
+    $template = new Engine('../app/View');
     return  $template;
   }
   

@@ -1,8 +1,6 @@
 <?php
-namespace App\model;
+namespace App\Model;
 use Intervention\Image\ImageManager;
-
-
 
 class ImageModel
 {
@@ -26,7 +24,7 @@ class ImageModel
         'jpg' => 'image/jpeg',
         'png' => 'image/png',
         'gif' => 'image/gif',
-//            'svg' => 'image/svg+xml',
+         'svg' => 'image/svg+xml',
       ]);
     if(!$path || false === $ext) {
       flash()->message('картинку пж выберите');

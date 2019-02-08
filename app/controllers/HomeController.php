@@ -1,13 +1,8 @@
 <?php
 namespace App\Controllers;
-use App\Controllers\PostsController;
-use App\model\Database;
+use App\Model\Database;
 use League\Plates\Engine;
-use App\model\PaginatorLocal;
-use App\Controllers\UserController;
-
-
-
+use App\Model\PaginatorLocal;
 
 class HomeController
 {
@@ -29,10 +24,10 @@ class HomeController
     }
   private function getDir() {
       if($this->user->isLogin()) {
-        return new Engine('../app/view/user');
+        return new Engine('../app/View/user');
 
       } else {
-        return  new Engine('../app/view');
+        return  new Engine('../app/View');
   
       }
   }
@@ -79,7 +74,5 @@ class HomeController
      $this->posts->deletePost($id);
      header('Location: /');
   }
-  
-  
 
 }

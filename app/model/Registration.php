@@ -1,7 +1,7 @@
 <?php
-namespace App\model;
+namespace App\Model;
 use Delight\Auth\Auth;
-//use App\model\Validate;
+
 
 class Registration
 {

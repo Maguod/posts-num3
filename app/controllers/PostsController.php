@@ -1,12 +1,9 @@
 <?php
 namespace App\Controllers;
-
 use Faker\Factory;
-use App\model\ImageModel;
-use App\model\Database;
-use App\model\Validate;
-use App\Controllers\UserController;
-
+use App\Model\ImageModel;
+use App\Model\Database;
+use App\Model\Validate;
 
 class PostsController
 {

@@ -3006,7 +3006,7 @@ module.exports = function(Chart) {
 				_datasetIndex: me.index,
 				_index: index,
 
-				// Desired view properties
+				// Desired View properties
 				_model: {
 					x: centerX + chart.offsetX,
 					y: centerY + chart.offsetY,
@@ -3284,7 +3284,7 @@ module.exports = function(Chart) {
 			point._datasetIndex = datasetIndex;
 			point._index = index;
 
-			// Desired view properties
+			// Desired View properties
 			point._model = {
 				x: x,
 				y: y,
@@ -3626,7 +3626,7 @@ module.exports = function(Chart) {
 				_index: index,
 				_scale: scale,
 
-				// Desired view properties
+				// Desired View properties
 				_model: {
 					x: centerX,
 					y: centerY,
@@ -3791,7 +3791,7 @@ module.exports = function(Chart) {
 				_index: index,
 				_scale: scale,
 
-				// Desired view properties
+				// Desired View properties
 				_model: {
 					x: reset ? scale.xCenter : pointPosition.x, // value not used in dataset scale, but we want a consistent API between scales
 					y: reset ? scale.yCenter : pointPosition.y,
@@ -3898,7 +3898,7 @@ defaults._set('scatter', {
 
 module.exports = function(Chart) {
 
-	// Scatter charts use line controllers
+	// Scatter charts use line Controllers
 	Chart.controllers.scatter = Chart.controllers.line;
 
 };
@@ -4232,7 +4232,7 @@ module.exports = function(Chart) {
 				me.resize(true);
 			}
 
-			// Make sure scales have IDs and are built before we build any controllers.
+			// Make sure scales have IDs and are built before we build any Controllers.
 			me.ensureScalesHaveIDs();
 			me.buildOrUpdateScales();
 			me.initToolTip();
@@ -4475,17 +4475,17 @@ module.exports = function(Chart) {
 			// In case the entire data object changed
 			me.tooltip._data = me.data;
 
-			// Make sure dataset controllers are updated and new controllers are reset
+			// Make sure dataset Controllers are updated and new Controllers are reset
 			var newControllers = me.buildOrUpdateControllers();
 
-			// Make sure all dataset controllers have correct meta data counts
+			// Make sure all dataset Controllers have correct meta data counts
 			helpers.each(me.data.datasets, function(dataset, datasetIndex) {
 				me.getDatasetMeta(datasetIndex).controller.buildOrUpdateElements();
 			}, me);
 
 			me.updateLayout();
 
-			// Can only reset the new controllers after the scales have been updated
+			// Can only reset the new Controllers after the scales have been updated
 			if (me.options.animation && me.options.animation.duration) {
 				helpers.each(newControllers, function(controller) {
 					controller.reset();
@@ -4843,7 +4843,7 @@ module.exports = function(Chart) {
 
 			me.stop();
 
-			// dataset controllers need to cleanup associated data
+			// dataset Controllers need to cleanup associated data
 			for (i = 0, ilen = me.data.datasets.length; i < ilen; ++i) {
 				me.destroyDatasetMeta(i);
 			}
@@ -5119,7 +5119,7 @@ module.exports = function(Chart) {
 		delete array._chartjs;
 	}
 
-	// Base class for all dataset controllers (line, bar, etc)
+	// Base class for all dataset Controllers (line, bar, etc)
 	Chart.DatasetController = function(chart, datasetIndex) {
 		this.initialize(chart, datasetIndex);
 	};
@@ -5401,8 +5401,8 @@ function interpolate(start, view, model, ease) {
 
 		target = model[key];
 
-		// if a value is added to the model after pivot() has been called, the view
-		// doesn't contain it, so let's initialize the view to the target value.
+		// if a value is added to the Model after pivot() has been called, the View
+		// doesn't contain it, so let's initialize the View to the target value.
 		if (!view.hasOwnProperty(key)) {
 			view[key] = target;
 		}
@@ -5913,7 +5913,7 @@ module.exports = function() {
 		var height = boundingRect.bottom - boundingRect.top - paddingTop - paddingBottom;
 
 		// We divide by the current device pixel ratio, because the canvas is scaled up by that amount in each direction. However
-		// the backend model is in unscaled coordinates. Since we are going to deal with our model coordinates, we go back here
+		// the backend Model is in unscaled coordinates. Since we are going to deal with our Model coordinates, we go back here
 		mouseX = Math.round((mouseX - boundingRect.left - paddingLeft) / (width) * canvas.width / chart.currentDevicePixelRatio);
 		mouseY = Math.round((mouseY - boundingRect.top - paddingTop) / (height) * canvas.height / chart.currentDevicePixelRatio);
 
@@ -8593,7 +8593,7 @@ function splitNewlines(str) {
 }
 
 
-// Private helper to store a tooltip item model
+// Private helper to store a tooltip item Model
 // @param element : the chart element (point, arc, bar) to store the tooltip item for
 // @return : new tooltip item
 function createTooltipItem(element) {
@@ -8613,7 +8613,7 @@ function createTooltipItem(element) {
 }
 
 /**
- * Helper to get the reset model for the tooltip
+ * Helper to get the reset Model for the tooltip
  * @param tooltipOpts {Object} the tooltip options
  */
 function getBaseModel(tooltipOpts) {
@@ -8946,8 +8946,8 @@ var exports = module.exports = Element.extend({
 		var me = this;
 		var opts = me._options;
 
-		// Need to regenerate the model because its faster than using extend and it is necessary due to the optimization in Chart.Element.transition
-		// that does _view = _model if ease === 1. This causes the 2nd tooltip update to set properties in both the view and model at the same time
+		// Need to regenerate the Model because its faster than using extend and it is necessary due to the optimization in Chart.Element.transition
+		// that does _view = _model if ease === 1. This causes the 2nd tooltip update to set properties in both the View and Model at the same time
 		// which breaks any animations.
 		var existingModel = me._model;
 		var model = me._model = getBaseModel(opts);
@@ -10366,7 +10366,7 @@ var helpers = {
 	},
 
 	/**
-	 * Basic javascript inheritance based on the model created in Backbone.js
+	 * Basic javascript inheritance based on the Model created in Backbone.js
 	 */
 	inherits: function(extensions) {
 		var me = this;
@@ -11463,8 +11463,8 @@ function computeBoundary(source) {
 	}
 
 	// Backward compatibility: until v3, we still need to support boundary values set on
-	// the model (scaleTop, scaleBottom and scaleZero) because some external plugins and
-	// controllers might still use it (e.g. the Smith chart).
+	// the Model (scaleTop, scaleBottom and scaleZero) because some external plugins and
+	// Controllers might still use it (e.g. the Smith chart).
 
 	if (fill === 'start') {
 		target = model.scaleBottom === undefined ? scale.bottom : model.scaleBottom;
@@ -15501,7 +15501,7 @@ var WOW;
 Waves.attach('.btn:not(.btn-flat), .btn-floating', ['waves-light']);
 Waves.attach('.btn-flat', ['waves-effect']);
 Waves.attach('.chip', ['waves-effect']);
-Waves.attach('.view a .mask', ['waves-light']);
+Waves.attach('.View a .mask', ['waves-light']);
 Waves.attach('.waves-light', ['waves-light']);
 Waves.attach('.navbar-nav a:not(.navbar-brand), .nav-icons li a, .nav-tabs .nav-item:not(.dropdown)', ['waves-light']);
 Waves.attach('.pager li a', ['waves-light']);

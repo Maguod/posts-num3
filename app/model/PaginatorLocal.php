@@ -1,9 +1,8 @@
 <?php
-namespace App\model;
+namespace App\Model;
 use JasonGrimes\Paginator;
-use App\model\Database;
 use Aura\SqlQuery\QueryFactory;
-use \PDO;
+use PDO;
 
 class PaginatorLocal
 {

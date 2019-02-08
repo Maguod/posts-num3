@@ -1,7 +1,7 @@
 <?php
 use DI\ContainerBuilder;
 use Aura\SqlQuery\QueryFactory;
-use App\model\Database;
+use App\Model\Database;
 use League\Plates\Engine;
 
 $containerBuilder = new ContainerBuilder;
@@ -13,7 +13,11 @@ $containerBuilder->addDefinitions([
 
   PDO::class => function() {
     $driver = 'mysql';
-    $host = 'Localhost';
+    $host = '127.0.0.1';
+//    $db_name = 'vh340_valditou_2';
+//    $user = 'vh340_admin';
+//    $user_pass = 'max_admin';
+
     $db_name = 'test_bd';
     $user = 'root';
     $user_pass = '';

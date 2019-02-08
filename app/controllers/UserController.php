@@ -1,7 +1,7 @@
 <?php
 namespace App\Controllers;
 use Delight\Auth\Auth;
-use App\model\Registration;
+use App\Model\Registration;
 
  class UserController
  {
